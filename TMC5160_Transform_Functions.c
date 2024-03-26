@@ -1,5 +1,15 @@
+/* Includes	-----------------------------------------------------*/
 #include "TMC5160.h"
-// Transform data for REAd\WRITE_REGISTER function
+
+
+
+/* Functions -----------------------------------------------------*/
+/**
+ * @brief Transform uint32_t value to array
+ * 
+ * @param value 
+ * @param data 
+ */
 void  divide_uint32_t_and_pacckage_in_array(uint32_t value, uint8_t *data){
 	data[1]  = (uint8_t)(value >> 24);
 	data[2]  = (uint8_t)(value >> 16);
@@ -7,6 +17,14 @@ void  divide_uint32_t_and_pacckage_in_array(uint32_t value, uint8_t *data){
 	data[4]  = (uint8_t)value;
 }
 
+
+
+/**
+ * @brief 	Transform array to uint32_t value
+ * 
+ * @param 	data Buffer, that will be parsed
+ * @return 	uint32_t 
+ */
 uint32_t parsing_data( uint8_t data[]) {
 	// Initialization parts of the message
 	uint32_t third_byte = (uint32_t)data[1] << 24;

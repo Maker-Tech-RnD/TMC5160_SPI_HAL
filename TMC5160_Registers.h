@@ -1,16 +1,31 @@
-/*
- * REg.h
- *
- *  Created on: Mar 25, 2024
- *      Author: Ilya
+/**
+ * @file   		TMC5160_Registers.h
+ * @author 		Ilya (https://github.com/EmbededIlya)
+ * @brief 
+ * @version 	0.1
+ * @date 		2024-03-26
+ * 
+ * @copyright 	Copyright (c) 2024
+ * 
  */
+
+
 
 #ifndef LIB_TMC5160_STM32_HAL_TMC5160_REGISTERS_H_
 #define LIB_TMC5160_STM32_HAL_TMC5160_REGISTERS_H_
+
+
+
+/* Includes	-----------------------------------------------------*/
 #include <TMC5160_Registers.h>
 #include "main.h"
 
-//Register's addresses
+
+
+/**
+ * @brief Enum for register's addresses
+ * 
+ */
 typedef enum{
 	//GENERAL CONFIGURATION REGISTERS (0X00…0X0F)
 	GCONF			= 0x00,	// RW
@@ -71,6 +86,12 @@ typedef enum{
 	LOST_STEPS		= 0x73, // R
 }TMC5160_Reg_Adress;
 
+
+
+/**
+ * @brief Bit fields for each register
+ * 
+ */
 union Register_GCONF
     {
         struct
@@ -97,6 +118,8 @@ union Register_GCONF
         } REG;
         uint32_t UINT32;
     };
+
+
 
 union Register_CHOPCONF
     {
@@ -144,6 +167,8 @@ union Register_CHOPCONF
         uint32_t UINT32;
     };
 
+
+
 union Register_IHOLD_IRUN
     {
         struct
@@ -155,6 +180,8 @@ union Register_IHOLD_IRUN
         } REG;
         uint32_t UINT32;
     };
+
+
 
 union Register_DRV_STATUS
     {
@@ -179,7 +206,6 @@ union Register_DRV_STATUS
         } REG;
         uint32_t UINT32;
     };
-
 
 
 
